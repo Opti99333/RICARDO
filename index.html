@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#0b0513" />
+    <title>MILOS</title>
+    <link rel="icon" href="assets/icon/favicon.ico">
+    <link rel="preload" href="assets/enter.mp4" as="video" type="video/mp4">
+    <link rel="preload" href="assets/main.mp4" as="video" type="video/mp4">
+    <link rel="preload" href="assets/music.mp3" as="audio" type="audio/mpeg">
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="responsive.css" />
+  </head>
+  <body>
+    <!-- ENTER / SPLASH SCREEN -->
+    <div id="enter" class="enter-screen" aria-label="Intro screen">
+      <video id="enterVideo" class="enter-video" autoplay muted playsinline preload="auto">
+        <source src="assets/enter.mp4" type="video/mp4" />
+      </video>
+      <div class="enter-overlay"></div>
+      <button id="enterBtn" class="btn btn-primary enter-btn" aria-controls="app" aria-label="Enter the site">Vibe Mode: ON</button>
+      
+    </div>
+
+    <!-- MAIN APP -->
+    <main id="app" class="app hidden" aria-hidden="true">
+      <video id="bgVideo" class="bg-video" muted loop playsinline preload="metadata">
+        <source src="assets/main.mp4" type="video/mp4" />
+      </video>
+      <div class="bg-scrim" aria-hidden="true"></div>
+
+      <header class="site-header">
+        <div class="brand">MILOS</div>
+        <nav class="nav">
+          <a class="icon-link" href="https://dexscreener.com" target="_blank" rel="noopener" aria-label="Dexscreener" title="Dexscreener">
+            <!-- simple chart icon -->
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true">
+              <path d="M4 20h16v-2H4v2zm2-4h2V8H6v8zm4 0h2V4h-2v12zm4 0h2V12h-2v4zm4 0h2V6h-2v10z"/>
+            </svg>
+          </a>
+          <a class="icon-link" href="https://t.me/your_channel" target="_blank" rel="noopener" aria-label="Telegram" title="Telegram">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true">
+              <path d="M9.03 14.83l-.37 3.9c.53 0 .76-.23 1.04-.5l2.5-2.39 5.18 3.8c.95.52 1.62.25 1.88-.88l3.41-15.98.01-.01c.3-1.37-.5-1.9-1.43-1.56L1.3 9.63C-.03 10.15-.02 10.93 1.04 11.26l5.42 1.69 12.59-7.95c.59-.36 1.13-.16.69.23"/>
+            </svg>
+          </a>
+          <a class="icon-link" href="https://twitter.com/your_profile" target="_blank" rel="noopener" aria-label="Twitter/X" title="Twitter/X">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true">
+              <path d="M3 3l7.5 9.2L3 21h3.4l6.2-7.5L17.8 21H21l-7.6-9.6L21 3h-3.4l-5.8 7L6.2 3H3z"/>
+            </svg>
+          </a>
+
+          <a class="btn btn-buy" href="coming_soon" target="_blank" rel="noopener">Buy</a>
+
+          <button id="muteBtn" class="btn btn-icon" aria-label="Toggle sound" aria-pressed="true" title="Toggle sound">
+            <svg id="icon-sound-on" class="icon-swap on" viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true">
+              <path d="M3 10v4h4l5 4V6L7 10H3z"></path>
+              <path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v8.06c1.48-.74 2.5-2.26 2.5-4.03z"></path>
+              <path d="M14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"></path>
+            </svg>
+            <svg id="icon-sound-off" class="icon-swap off" viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true">
+              <path d="M16.5 12c0 1.77-1.02 3.29-2.5 4.03v2.06c4.01-.91 7-4.49 7-8.77 0-1.05-.15-2.05-.43-3L19.5 8.39c.33.89.5 1.84.5 2.84 0 3.17-2.11 5.85-5 6.71z"></path>
+              <path d="M3 10v4h4l5 4V6L7 10H3z"></path>
+              <path d="M3.41 1.86L1.99 3.27 20.73 22l1.41-1.41z"></path>
+            </svg>
+          </button>
+        </nav>
+      </header>
+
+      <section class="hero" role="region" aria-label="Hero">
+        <h1 class="glow">MILOS</h1>
+        <p class="tagline">Dance into crypto. The ultimate meme coin.</p>
+        <div class="cta-row">
+          <a class="btn btn-hero" href="coming_soon" target="_blank" rel="noopener">Buy Now</a>
+          <a class="btn btn-ghost" href="https://dexscreener.com" target="_blank" rel="noopener">View Chart</a>
+        </div>
+
+        <!-- Contract Address (transparent center, animated gradient border) -->
+        <div class="contract-block" role="group" aria-label="Contract address">
+          <div class="contract-chip" id="contractChip" data-address="0xYOURCONTRACTADDRESS">
+            <span class="contract-text" id="contractAddressText">coming_soon</span>
+            <button class="copy-btn" id="copyContractBtn" data-copy-target="#contractAddressText" aria-label="Copy contract address">Copy</button>
+          </div>
+        </div>
+
+
+
+        <p class="disclaimer">🕺🔥 Warning: this site might make you dance 🕺🔥 It’s just memes and vibes — no financial advice 💃💸</p>
+      </section>
+
+      <audio id="bgMusic" src="assets/music.mp3" preload="auto" loop></audio>
+    </main>
+
+    <script defer src="script.js"></script>
+  </body>
+</html>
